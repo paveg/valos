@@ -1,0 +1,45 @@
+openapi: "3.0.3"
+info:
+  version: "2023.9.17"
+  title: Valos
+  description: Example valorant web service
+
+servers:
+  - url: http://localhost:3000/
+    description: Valorant information Api service local
+  - url: https://valos.vercel.app/
+    description: Valorant information Api service production
+
+tags:
+  - name: Content
+    description: Valorant Content
+
+paths:
+  /api/content:
+    get:
+      summary: Get a content
+      operationId: content
+      deprecated: false
+      tags:
+        - Content
+      responses:
+        '200':
+          description: Get a content successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - content
+                properties:
+                  content:
+                    description: a content
+                    type: object
+                    required:
+                      - characters
+                    properties:
+                      characters:
+                        type: array
+                        description: a character list
+                        items:
+                          $ref: "./models/character.yaml#/components/schemas/Character"

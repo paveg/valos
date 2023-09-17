@@ -1,0 +1,19 @@
+components:
+  schemas:
+    Content:
+      type: object
+      required:
+        - characters
+      properties:
+        characters:
+          type: array
+          items:
+            type: object
+            description: a character list
+            properties:
+              localizedNames:
+                type: object
+                properties:
+                  'ja-JP':
+                    type: string
+                    example: ゲッコー

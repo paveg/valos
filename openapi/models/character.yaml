@@ -1,0 +1,15 @@
+components:
+  schemas:
+    Character:
+      type: object
+      required:
+        - localizedNames
+      properties:
+        localizedNames:
+          type: object
+          required:
+            - 'ja-JP'
+          properties:
+            'ja-JP':
+              type: string
+              example: ゲッコー
