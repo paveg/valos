@@ -1,0 +1,15 @@
+components:
+  schemas:
+    LocalizedNames:
+      description: This field is excluded from the response when a locale is set
+      type: object
+      required:
+        - 'en-US'
+        - 'ja-JP'
+      properties:
+        'en-US':
+          description: English
+          type: string
+        'ja-JP':
+          description: Japanese
+          type: string

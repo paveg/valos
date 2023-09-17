@@ -1,5 +1,5 @@
 components:
   schemas:
-    Character:
-      description: A character
+    Map:
+      description: A map
       $ref: "./shared/content_item.yaml#/components/schemas/ContentItem"

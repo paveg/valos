@@ -9,6 +9,7 @@ export default defineConfig({
       client: 'react-query',
       mode: 'tags',
       mock: true,
+      clean: true,
     },
   }
 })

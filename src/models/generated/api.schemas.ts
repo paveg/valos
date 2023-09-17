@@ -6,33 +6,67 @@
  * OpenAPI spec version: 2023.9.17
  */
 /**
- * A localized name list
+ * This field is excluded from the response when a locale is set
  */
-export type CharacterLocalizedNames = {
-  /** for Japanese */
+export interface LocalizedNames {
+  /** English */
+  'en-US': string;
+  /** Japanese */
   'ja-JP': string;
-};
+}
+
+/**
+ * A content item
+ */
+export interface ContentItem {
+  id: string;
+  assetName: string;
+  /** This field is only included for maps and game modes. These values are used in the match response. */
+  assetPath: string;
+  localizedNames: LocalizedNames;
+}
+
+/**
+ * A map
+ */
+export type Map = ContentItem;
 
 /**
  * A character
  */
-export interface Character {
-  /** A localized name list */
-  localizedNames: CharacterLocalizedNames;
+export type Character = ContentItem;
+
+/**
+ * Base Error
+ */
+export interface BaseError {
+  /** Human readable error code */
+  status: string;
+  /** HTTP Status Code */
+  status_code?: number;
 }
 
 /**
- * A content
+ * A contents
  */
 export interface Content {
   /** A character list */
-  characters: Character[];
+  characters: ContentItem[];
+  /** A map list */
+  maps: ContentItem[];
+}
+
+/**
+ * A response of the get a content with bad request
+ */
+export interface GetContentBadRequestResponse {
+  status: BaseError;
 }
 
 /**
  * A response of the get a content successfully
  */
 export interface GetContentSuccessResponse {
-  content: Content;
+  contents: Content;
 }
 

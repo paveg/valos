@@ -2,12 +2,18 @@ components:
   schemas:
     Content:
       type: object
-      description: A content
+      description: A contents
       required:
         - characters
+        - maps
       properties:
         characters:
           description: A character list
           type: array
           items:
             $ref: "./character.yaml#/components/schemas/Character"
+        maps:
+          description: A map list
+          type: array
+          items:
+            $ref: "./map.yaml#/components/schemas/Map"

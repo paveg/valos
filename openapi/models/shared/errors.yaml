@@ -1,0 +1,16 @@
+components:
+  schemas:
+    BaseError:
+      type: object
+      description: Base Error
+      required:
+        - status
+      properties:
+        status:
+          description: Human readable error code
+          type: string
+          example: "Bad Request"
+        status_code:
+          description: HTTP Status Code
+          type: number
+          example: 400

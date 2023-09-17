@@ -1,0 +1,22 @@
+components:
+  schemas:
+    ContentItem:
+      description: A content item
+      type: object
+      required:
+        - id
+        - name
+        - assetName
+        - assetPath
+        - localizedNames
+      properties:
+        id:
+          type: string
+        assetName:
+          type: string
+        assetPath:
+          type: string
+          description: This field is only included for maps and game modes. These values are used in the match response.
+        localizedNames:
+          type: object
+          $ref: "./localized_names.yaml#/components/schemas/LocalizedNames"

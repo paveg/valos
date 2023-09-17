@@ -15,20 +15,26 @@ tags:
     description: Valorant Content
 
 paths:
-  /api/content:
+  /api/contents:
     get:
-      summary: Get a content
-      operationId: content
+      summary: Get contents
+      operationId: contents
       deprecated: false
       tags:
         - Content
       responses:
         '200':
-          description: Get a content successfully
+          description: Get contents successfully
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/GetContentSuccessResponse"
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetContentBadRequestResponse"
 
 components:
   schemas:
@@ -36,7 +42,15 @@ components:
       description: A response of the get a content successfully
       type: object
       required:
-        - content
+        - contents
       properties:
-        content:
+        contents:
           $ref: "./models/content.yaml#/components/schemas/Content"
+    GetContentBadRequestResponse:
+      description: A response of the get a content with bad request
+      type: object
+      required:
+        - status
+      properties:
+        status:
+          $ref: "./models/shared/errors.yaml#/components/schemas/BaseError"

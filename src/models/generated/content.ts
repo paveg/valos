@@ -21,7 +21,8 @@ import type {
   QueryKey
 } from '@tanstack/react-query'
 import type {
-  GetContentSuccessResponse
+  GetContentSuccessResponse,
+  GetContentBadRequestResponse
 } from './api.schemas'
 import {
   rest
@@ -33,47 +34,47 @@ import {
 
 
 /**
- * @summary Get a content
+ * @summary Get contents
  */
-export const content = (
+export const contents = (
      options?: AxiosRequestConfig
  ): Promise<AxiosResponse<GetContentSuccessResponse>> => {
     return axios.get(
-      `/api/content`,options
+      `/api/contents`,options
     );
   }
 
 
-export const getContentQueryKey = () => [`/api/content`] as const;
+export const getContentsQueryKey = () => [`/api/contents`] as const;
   
 
     
-export const getContentQueryOptions = <TData = Awaited<ReturnType<typeof content>>, TError = AxiosError<unknown>>( options?: { query?:UseQueryOptions<Awaited<ReturnType<typeof content>>, TError, TData>, axios?: AxiosRequestConfig}
-): UseQueryOptions<Awaited<ReturnType<typeof content>>, TError, TData> & { queryKey: QueryKey } => {
+export const getContentsQueryOptions = <TData = Awaited<ReturnType<typeof contents>>, TError = AxiosError<GetContentBadRequestResponse>>( options?: { query?:UseQueryOptions<Awaited<ReturnType<typeof contents>>, TError, TData>, axios?: AxiosRequestConfig}
+): UseQueryOptions<Awaited<ReturnType<typeof contents>>, TError, TData> & { queryKey: QueryKey } => {
 const {query: queryOptions, axios: axiosOptions} = options ?? {};
 
-  const queryKey =  queryOptions?.queryKey ?? getContentQueryKey();
+  const queryKey =  queryOptions?.queryKey ?? getContentsQueryKey();
 
   
   
-    const queryFn: QueryFunction<Awaited<ReturnType<typeof content>>> = ({ signal }) => content({ signal, ...axiosOptions });
+    const queryFn: QueryFunction<Awaited<ReturnType<typeof contents>>> = ({ signal }) => contents({ signal, ...axiosOptions });
     
       
       
    return  { queryKey, queryFn, ...queryOptions}}
 
-export type ContentQueryResult = NonNullable<Awaited<ReturnType<typeof content>>>
-export type ContentQueryError = AxiosError<unknown>
+export type ContentsQueryResult = NonNullable<Awaited<ReturnType<typeof contents>>>
+export type ContentsQueryError = AxiosError<GetContentBadRequestResponse>
 
 /**
- * @summary Get a content
+ * @summary Get contents
  */
-export const useContent = <TData = Awaited<ReturnType<typeof content>>, TError = AxiosError<unknown>>(
-  options?: { query?:UseQueryOptions<Awaited<ReturnType<typeof content>>, TError, TData>, axios?: AxiosRequestConfig}
+export const useContents = <TData = Awaited<ReturnType<typeof contents>>, TError = AxiosError<GetContentBadRequestResponse>>(
+  options?: { query?:UseQueryOptions<Awaited<ReturnType<typeof contents>>, TError, TData>, axios?: AxiosRequestConfig}
 
   ):  UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
 
-  const queryOptions = getContentQueryOptions(options)
+  const queryOptions = getContentsQueryOptions(options)
 
   const query = useQuery(queryOptions) as  UseQueryResult<TData, TError> & { queryKey: QueryKey };
 
@@ -84,13 +85,13 @@ export const useContent = <TData = Awaited<ReturnType<typeof content>>, TError =
 
 
 
-export const getContentMock = () => ({content: {characters: Array.from({ length: faker.datatype.number({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => ({localizedNames: {'ja-JP': faker.random.word()}}))}})
+export const getContentsMock = () => ({contents: {characters: Array.from({ length: faker.datatype.number({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => ({id: faker.random.word(), assetName: faker.random.word(), assetPath: faker.random.word(), localizedNames: {'en-US': faker.random.word(), 'ja-JP': faker.random.word()}})), maps: Array.from({ length: faker.datatype.number({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => ({id: faker.random.word(), assetName: faker.random.word(), assetPath: faker.random.word(), localizedNames: {'en-US': faker.random.word(), 'ja-JP': faker.random.word()}}))}})
 
 export const getContentMSW = () => [
-rest.get('*/api/content', (_req, res, ctx) => {
+rest.get('*/api/contents', (_req, res, ctx) => {
         return res(
           ctx.delay(1000),
           ctx.status(200, 'Mocked status'),
-ctx.json(getContentMock()),
+ctx.json(getContentsMock()),
         )
       }),]
