@@ -5,24 +5,34 @@
  * Example valorant web service
  * OpenAPI spec version: 2023.9.17
  */
+/**
+ * A localized name list
+ */
 export type CharacterLocalizedNames = {
+  /** for Japanese */
   'ja-JP': string;
 };
 
+/**
+ * A character
+ */
 export interface Character {
+  /** A localized name list */
   localizedNames: CharacterLocalizedNames;
 }
 
 /**
- * a content
+ * A content
  */
-export type Content200Content = {
-  /** a character list */
+export interface Content {
+  /** A character list */
   characters: Character[];
-};
+}
 
-export type Content200 = {
-  /** a content */
-  content: Content200Content;
-};
+/**
+ * A response of the get a content successfully
+ */
+export interface GetContentSuccessResponse {
+  content: Content;
+}
 

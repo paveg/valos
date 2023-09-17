@@ -1,15 +1,18 @@
 components:
   schemas:
     Character:
+      description: A character
       type: object
       required:
         - localizedNames
       properties:
         localizedNames:
+          description: A localized name list
           type: object
           required:
             - 'ja-JP'
           properties:
             'ja-JP':
+              description: for Japanese
               type: string
               example: ゲッコー

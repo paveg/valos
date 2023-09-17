@@ -28,18 +28,15 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                required:
-                  - content
-                properties:
-                  content:
-                    description: a content
-                    type: object
-                    required:
-                      - characters
-                    properties:
-                      characters:
-                        type: array
-                        description: a character list
-                        items:
-                          $ref: "./models/character.yaml#/components/schemas/Character"
+                $ref: "#/components/schemas/GetContentSuccessResponse"
+
+components:
+  schemas:
+    GetContentSuccessResponse:
+      description: A response of the get a content successfully
+      type: object
+      required:
+        - content
+      properties:
+        content:
+          $ref: "./models/content.yaml#/components/schemas/Content"

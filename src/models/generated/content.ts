@@ -21,7 +21,7 @@ import type {
   QueryKey
 } from '@tanstack/react-query'
 import type {
-  Content200
+  GetContentSuccessResponse
 } from './api.schemas'
 import {
   rest
@@ -37,7 +37,7 @@ import {
  */
 export const content = (
      options?: AxiosRequestConfig
- ): Promise<AxiosResponse<Content200>> => {
+ ): Promise<AxiosResponse<GetContentSuccessResponse>> => {
     return axios.get(
       `/api/content`,options
     );
