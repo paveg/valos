@@ -8,7 +8,6 @@ components:
         - name
         - assetName
         - assetPath
-        - localizedNames
       properties:
         id:
           type: string

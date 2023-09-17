@@ -4,9 +4,25 @@ components:
       type: object
       description: A contents
       required:
+        - version
         - characters
         - maps
+        - chromas
+        - skins
+        - skinLevels
+        - equips
+        - gameModes
+        - sprays
+        - sprayLevels
+        - charms
+        - charmLevels
+        - playerCards
+        - playerTitles
+        - acts
       properties:
+        version:
+          descrpiton: version
+          type: string
         characters:
           description: A character list
           type: array
@@ -17,3 +33,63 @@ components:
           type: array
           items:
             $ref: "./map.yaml#/components/schemas/Map"
+        chromas:
+          description: A chroma list
+          type: array
+          items:
+            $ref: "./chroma.yaml#/components/schemas/Chroma"
+        skins:
+          description: A skin list
+          type: array
+          items:
+            $ref: "./skin.yaml#/components/schemas/Skin"
+        skinLevels:
+          description: A skin level list
+          type: array
+          items:
+            $ref: "./skin_level.yaml#/components/schemas/SkinLevel"
+        equips:
+          description: An equip list
+          type: array
+          items:
+            $ref: "./equip.yaml#/components/schemas/Equip"
+        gameModes:
+          description: A game mode list
+          type: array
+          items:
+            $ref: "./game_mode.yaml#/components/schemas/GameMode"
+        sprays:
+          description: A spray list
+          type: array
+          items:
+            $ref: "./spray.yaml#/components/schemas/Spray"
+        sprayLevels:
+          description: A spray level list
+          type: array
+          items:
+            $ref: "./spray_level.yaml#/components/schemas/SprayLevel"
+        charms:
+          description: A charm list
+          type: array
+          items:
+            $ref: "./charm.yaml#/components/schemas/Charm"
+        charmLevels:
+          description: A charm level list
+          type: array
+          items:
+            $ref: "./charm_level.yaml#/components/schemas/CharmLevel"
+        playerCards:
+          description: A player card list
+          type: array
+          items:
+            $ref: "./player_card.yaml#/components/schemas/PlayerCard"
+        playerTitles:
+          description: A player title list
+          type: array
+          items:
+            $ref: "./player_title.yaml#/components/schemas/PlayerTitle"
+        acts:
+          description: An act list
+          type: array
+          items:
+            $ref: "./act.yaml#/components/schemas/Act"

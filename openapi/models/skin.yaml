@@ -1,0 +1,5 @@
+components:
+  schemas:
+    Skin:
+      description: A skin
+      $ref: "./shared/content_item.yaml#/components/schemas/ContentItem"

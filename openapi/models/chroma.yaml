@@ -1,0 +1,5 @@
+components:
+  schemas:
+    Chroma:
+      description: A chroma
+      $ref: "./shared/content_item.yaml#/components/schemas/ContentItem"

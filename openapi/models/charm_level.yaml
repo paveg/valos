@@ -1,0 +1,5 @@
+components:
+  schemas:
+    CharmLevel:
+      description: A charm level
+      $ref: "./shared/content_item.yaml#/components/schemas/ContentItem"

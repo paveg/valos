@@ -1,0 +1,5 @@
+components:
+  schemas:
+    PlayerCard:
+      description: A player card
+      $ref: "./shared/content_item.yaml#/components/schemas/ContentItem"

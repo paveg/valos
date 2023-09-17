@@ -1,0 +1,5 @@
+components:
+  schemas:
+    GameMode:
+      description: A game mode
+      $ref: "./shared/content_item.yaml#/components/schemas/ContentItem"

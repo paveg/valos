@@ -1,0 +1,5 @@
+components:
+  schemas:
+    SprayLevel:
+      description: A spray level
+      $ref: "./shared/content_item.yaml#/components/schemas/ContentItem"

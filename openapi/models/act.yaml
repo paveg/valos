@@ -1,0 +1,18 @@
+components:
+  schemas:
+    Act:
+      description: An act
+      type: object
+      required:
+        - id
+        - name
+        - isActive
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        isActive:
+          type: boolean
+        localizedNames:
+          $ref: "./shared/localized_names.yaml#/components/schemas/LocalizedNames"

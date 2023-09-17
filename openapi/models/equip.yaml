@@ -1,0 +1,5 @@
+components:
+  schemas:
+    Equip:
+      description: An equip
+      $ref: "./shared/content_item.yaml#/components/schemas/ContentItem"
