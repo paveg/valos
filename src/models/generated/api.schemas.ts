@@ -10,9 +10,9 @@
  */
 export interface LocalizedNames {
   /** English */
-  'en-US': string;
+  "en-US": string;
   /** Japanese */
-  'ja-JP': string;
+  "ja-JP": string;
 }
 
 /**
@@ -159,4 +159,3 @@ export interface GetContentBadRequestResponse {
 export interface GetContentSuccessResponse {
   contents: Content;
 }
-

@@ -1,2 +1,2 @@
-export * from './content';
-export * from './api.schemas';
+export * from "./content";
+export * from "./api.schemas";
