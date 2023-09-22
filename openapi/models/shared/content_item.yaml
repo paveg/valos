@@ -11,6 +11,8 @@ components:
       properties:
         id:
           type: string
+        name:
+          type: string
         assetName:
           type: string
         assetPath:

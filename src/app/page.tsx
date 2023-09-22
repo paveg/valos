@@ -1,13 +1,12 @@
 "use client";
-import { Character, Content, Map, useContents } from "@/models/generated";
+import { Character, Map, useContents } from "@/models/generated";
 import React from "react";
 
 export default function Home() {
   const { data, isLoading, error } = useContents();
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
-  if (data?.data) {
-    const contents = data.data as Content;
+  if (!!data?.data) {
     return (
       <React.StrictMode>
         <main>
@@ -21,8 +20,8 @@ export default function Home() {
                   <th>Localized Name - en-US</th>
                 </thead>
                 <tbody>
-                  {contents.characters
-                    .filter((c) => !c?.name.includes("Null"))
+                  {data?.data.characters
+                    .filter((c: Character) => !c?.name.includes("Null"))
                     .map((c: Character) => {
                       return (
                         <tr key={c?.id}>
@@ -45,8 +44,8 @@ export default function Home() {
                   <th>Localized Name - en-US</th>
                 </thead>
                 <tbody>
-                  {contents.maps
-                    .filter((m) => !m?.name.includes("Null"))
+                  {data?.data?.map
+                    .filter((m: Map) => !m?.name.includes("Null"))
                     .map((m: Map) => {
                       return (
                         <tr key={m?.id}>

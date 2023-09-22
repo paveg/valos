@@ -10,9 +10,9 @@
  */
 export interface LocalizedNames {
   /** English */
-  "en-US": string;
+  'en-US': string;
   /** Japanese */
-  "ja-JP": string;
+  'ja-JP': string;
 }
 
 /**
@@ -20,6 +20,7 @@ export interface LocalizedNames {
  */
 export interface ContentItem {
   id: string;
+  name: string;
   assetName: string;
   /** This field is only included for maps and game modes. These values are used in the match response. */
   assetPath: string;
@@ -159,3 +160,4 @@ export interface GetContentBadRequestResponse {
 export interface GetContentSuccessResponse {
   contents: Content;
 }
+
